@@ -1,0 +1,263 @@
+%++++++++++++++++++++++++++++++++++++++++
+% Don't modify this section unless you know what you're doing!
+\documentclass[letterpaper,12pt]{article}
+\usepackage{tabularx} % extra features for tabular environment
+\usepackage{amsmath}  % improve math presentation
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[margin=1in,letterpaper]{geometry} % decreases margins
+\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\usepackage{verbatim}
+\hypersetup{
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=blue,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+%++++++++++++++++++++++++++++++++++++++++
+
+
+\begin{document}
+
+\title{Physics II Lecture Outlines}
+\author{Paul Smith}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+Here I summarize the content to be taught in the 2019-20 Physics II course at the Carleton Math Enrichment Centre. The purpose of the course is to help elevate the next generation of secondary students to a much deeper understanding of physics; something that the traditional school system is unable to do due to limitations in funding and time. Force, acceleration, energy, momentum, potential, and all the required mathematics for understanding these concepts are developed and applied to a variety of problems: some physical, others decidedly not. In either case, the goal of developing physical and mathematical intuition is key. This document (at least in its current iteration) is a very crude sketch of my lesson plans and content --- much more is still required to make this in anyway complete! 
+\end{abstract}
+
+\section{Units And Measurements}\label{Units}
+``Unless a thing can be defined by measurement, it has no place in a theory" --- Richard Feynman
+
+The application of the scientific method demands the ability to reproduce phenomena. To do this to any appreciable degree or to find quantitative relationships at all, we require measurements. Further, we require \textit{standardized} measurements --- saying that the seasons take $1/80$ a lifetime to cycle is only useful if we know what a lifetime \textit{means}. 
+
+No (continuous) measurement is perfect. Even if one lines up a metre stick beautifully and measures the length of a book to be $190$ mm, the question remains if this is really $190.001...$ mm or $189.9997...$ mm. Even if this could be resolved through the used of microscope or laser measurement, the question returns just a few digits to the right. As a result of this inadequacy, all measurements have an error associated with them to indicate the level of uncertainty present. We'll get back to errors when we get to making measurements in class! 
+
+\subsection{Fundamental Units}\label{sec:units}
+
+We use the Systeme International d'Unites (SI), established in 1960. This system grew out of the metric system which was originally built up during the French Revolution as a way to tackle the confusing, divided, and complicated standards that existed in France at the time (similar to what exists in the States today).The French Academy of Sciences created a panel to standardize all units and invited delegates from many countries to join in the discussion. Tragically, Great Britain the the United States refused these invitations. 
+
+\subsubsection{Time}\label{sec:time}
+
+Three key ``natural" measurements have been given to us by nature: the day, the month, and the year. The day depends on the Earth's spin, the month on the moon's orbits, and the year on the Earth's motion around the Sun. The apparently odd ratios of 60:1 for seconds to minutes and minutes to hours and 24:1 for hours to days exist since these concepts were first developed in Mesopotamia, where the number system was based on 60.
+
+The original metric second began as a fraction ($1/86,400$) of a mean solar day. Unfortunately, astronomical clocks do not remain constant! The solar day is lengthening and the lunar month is shortening. Because of this, a transition was made to something unchanging: $9,192,631,770$ cycles of a electromagnetic microwaves emitted from a hyperfine transition (the transition between the spin of the cesium nucleus being aligned with that of the outer-shell electron or anti-aligned) of the Cesium-133 atom in its ground state.
+
+\subsubsection{Length}\label{sec:length}
+
+In much the same way as the second, the metre originally started defined on our macroscopic world: the Academy of Sciences determined that a metre would be one ten-millionth of a quadrant (one quarter of a full meridian). Quickly, this was abandoned for the definition of being the distance between two marks on a bar made of platinum-iridium alloy. Over time, these bars could deviate slightly in shape and length. As a result, since 1983 the metre has been defined as how far light travels in $1/299,792,458$ s in a vacuum. Since both a second and the speed of light are based on constants in our universe, this makes the metre also unchanging.
+
+\subsubsection{Mass}\label{sec:mass}
+
+Similar to the metre, the kilogram was defined in terms of a prototype kilogram for centuries. In 2018, this was finally laid to rest by defining Planck's constant to be $h = 6.626 070 15 \times 10^{-34}\,\mathrm{kg}\,\mathrm{m^2}/\mathrm{s}$.
+
+\subsection{Dimensions}\label{sec:dimensions}
+
+Ultimately, within classical mechanics, there are three things that characterize physics systems: the space objects occupy, the matter said objects consist of, and the time during which they move. Phrased differently, we can elucidate the behaviour of physical systems through describing space, time, and mass. Any measurement of motion can be broken down into some combination of mass, length, and time. Note that I didn't mention kilograms, metres, or seconds --- these are simply re-scaled measurements of the same thing as a slug, foot, or minute. We call these three the primary \textit{dimensions} of physical quantities:
+\begin{itemize}
+\item $[M]$: Mass
+\item $[L]$: Length
+\item $[T]$: Time.
+\end{itemize} 
+Every physical quantity can be written in the form:
+\begin{equation}\label{eqn:dimension}
+[M]^\alpha [L]^\beta [T]^\gamma.
+\end{equation} 
+Take acceleration as an example:
+\begin{equation}
+[a] = \left[\frac{L/T}{T}\right]=[L][T]^{-2}.
+\end{equation}
+Now this can be used in several ways: to check equations validity, avoid errors, and, perhaps most importantly, determine relationships. Before we jump into applying this concept, let's first outline some standard physics units and the primary dimensions they possess.
+\begin{table}
+\begin{center}
+\begin{tabular}{ |p{3cm}||p{4cm}|p{4cm}|p{4cm}|  }
+ \hline
+ \multicolumn{4}{|c|}{Key quantities and their units and primary dimensions.} \\
+ \hline
+ Quantity & SI Unit & Base Units & Primary Dimension\\
+ \hline
+ Time   & Second (s) & s & $T$ \\
+ Length & Metre (m) & m & $L$ \\
+ Mass & Kilogram (kg) & kg & $M$ \\
+ Rate & Hertz (Hz) & 1/s & $T^{-1}$ \\
+ Velocity & - & m/s & $LT^{-1}$ \\
+ Acceleration & - & m/s$^2$ & $LT^{-2}$ \\
+ Force  & Newton (N) & kg m/s$^2$ & $MLT^{-2}$ \\
+ Energy  & Joule (J) & kg m$^2$/s$^2$ & $ML^2T^{-2}$\\
+ Pressure & Pascal (Pa) & N/m$^2$ = kg/ms$^2$ & $ML^{-1}T^{-2}$\\
+ \hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Dimensional Analysis}\label{sec:DA}
+
+Whenever we're doing computations, the primary dimensions (and units!) must match up across equals signs --- it's nonsensical to reply ``70 kg" to the question ``how old are you?" The easiest way to see how to use this is through examples. Here, I take the speed of a satellite in a circular orbit of radius $R$, around Mars (radius $R_m$), with gravitational pull $g$:
+\begin{equation}
+v = \left(\frac{g*R_m^2}{R}\right)^{1/2}.
+\end{equation}
+Is the dimensionality of this correct? We can check:
+\begin{equation}
+\left(\frac{(LT^{-2})L^2}{L}\right)^{1/2} =(L^2T^{-2})^{1/2}=L/T.
+\end{equation}
+This matches the primary dimensions for velocity! At the very least, we know our equation isn't comparing completely different quantities.
+The second, perhaps more powerful, use of dimensional analysis is to attempt to determine relationships between parameters. Take the example of an ideal pendulum: you have a bob of mass $m$, a massless string of length $l$, constant acceleration due to gravity $g$, and we assume that no dissipative forces (friction/air resistance). If we want to determine the period (time for 1 cycle) from just the previously mentioned variables, then, at the bare minimum, we must be able to obtain the correct primary dimension for period ($T$) from an algebraic combination of $m$, $l$, and $g$:
+\begin{equation}
+\tau \propto m^\alpha l^\beta g^\gamma,
+\end{equation} 
+which must have a dimensional relationship,
+\begin{equation}
+T = M^\alpha L^\beta (L^\gamma T^{-2\gamma}).
+\end{equation}
+This leads immediately to $\alpha = 0$ as there is no $M$ on the left-hand side of the equation. $\gamma = -\frac{1}{2}$ is required by $T$, leaving $\beta = \frac{1}{2}$. Thus,
+\begin{equation}
+\tau \propto \sqrt{\frac{l}{g}}.
+\end{equation}
+Note that we don't have an equality --- just a proportionality! Further, this isn't guaranteed to be the correct form (maybe the pendulum period could depend on angle, for example), but it is a good way of telling what doesn't work and guiding early attempts at solutions.
+
+\section{Motion In One Dimension}\label{1D}
+
+\subsection{Position, Velocity, And Acceleration}\label{sec:position}
+\begin{itemize}
+\item Position: A measurement of how far one is from some specified starting point. As such, units are of $L$ (metres). Denoted by $x$.
+\item Velocity: The rate of change in position with respect to time. $v = \frac{\Delta x}{\Delta t}$ --- note that this is the slope of the line on a position vs time graph. Units are $L/T$ (metres/second).
+\item Acceleration: The rate of change in velocity with respect to time. $a = \frac{\Delta v}{\Delta t}$, this is the slope of the line on a velocity vs time graph. Units are $L/T^2$ (metres/second$^2$). For this course, acceleration will be taken to be constant or a step function.
+\end{itemize}
+Draw some example graphs here!
+\subsection{Kinematics}\label{sec:kinematics}
+
+If we're dealing with constant acceleration, there are four very useful equations that can be used to solve problems. In all the following equations, the subscript ``0" indicates the initial value and the variables without subscripts indicate a current value (value at whatever time t). The first equation comes from the definition of acceleration:
+\begin{equation}\label{eqn:kinAcc}
+a = \frac{\Delta v}{\Delta t} = \frac{v-v_0}{t-t_0}=\frac{v-v_0}{t}.
+\end{equation}
+In the last step we took $t_0 = 0$ indicating that we started the clock at the beginning of the acceleration.
+
+Moving one step up to position we can do a similar thing with velocity. However, here we must be cautious as velocity can be changing within our problems and the relationship defining velocity $v = \frac{\Delta x}{\Delta t}$ only is accurate as $\Delta x$ and $\Delta t$ get small. We can avoid this issue if we deal with the average velocity as opposed to the instantaneous velocity. Take for example a trip to Toronto --- if it's 480 km to the GTA from wherever you are and you take 4 hours to get there your $v_{avg} = 120$ km/hr. It doesn't matter if you were going slightly faster at some points and slightly slower at others, the average smooths all these issues out and our velocity equation holds. So,
+\begin{equation}\label{eqn:kinVelSub1}
+v_{avg} = \frac{\Delta x}{\Delta t} = \frac{x - x_0}{t}.
+\end{equation}
+We want to rewrite $v_{avg}$ in terms of the initial and final velocities, under the assumption of constant acceleration. We can recall that acceleration is the slope of a line on a velocity/time graph so we can draw any motion with constant acceleration as a linear trend on such a graph. 
+
+Draw stuff on the board. The midpoint for this line (which gives us the average velocity) is halfway between the initial and final points: $v_{avg} = \frac{v+v_0}{2}$. Plugging this into Eq.~(\ref{eqn:kinVelSub1}),
+\begin{equation}\label{eqn:kinVel1}
+\begin{split}
+\frac{v+v_0}{2} &= \frac{x - x_0}{t}\\
+v &= 2\frac{x - x_0}{t} - v_0.
+\end{split}
+\end{equation}
+This gives us our second equation. Combining this with Eq.~(\ref{eqn:kinAcc}), we can plug in for $v$ and solve for position:
+\begin{equation}\label{eqn:kinPos}
+\begin{split}
+v &= at + v_0 = 2\frac{x - x_0}{t} - v_0 \\
+2\frac{x - x_0}{t} &= 2v_0 + at \\
+x &= x_0 + v_0 t + \frac{1}{2}at^2.
+\end{split}
+\end{equation}
+This equation is perhaps the most important --- we'll be using it nearly constantly throughout all sorts of questions!
+
+Finally, there's one more rearrangement of these equations that can prove very useful. We start with our final form of Eq.~(\ref{eqn:kinPos}):
+\begin{equation}\label{eqn:kinVel2}
+\begin{split}
+x - x_0 &= v_0 t + \frac{1}{2}at^2 \\
+2a(x-x_0) &= 2av_0 t +(at)^2 = 2(\frac{v-v_0}{t})v_0 t +(\frac{v-v_0}{t}t)^2 \\
+2a(x-x_0) &=  2(v-v_0)v_0 +(v-v_0)^2 = 2vv_0 -2v_0^2 +v^2 -2vv_0+v_0^2 \\
+2a(x-x_0) &= v^2 - v_0^2.
+\end{split}
+\end{equation}
+Here, we've used the acceleration equation (Eq.~(\ref{eqn:kinAcc})) in the second line. The nice thing about this equation is that it's totally free of the variable $t$. With that, we now have our main tools for examining 1D motion and it's time to move onto examples!
+
+\subsection{1D Examples}\label{sec:1D examples}
+
+\begin{itemize}
+\item A girl is swimming at a constant rate of 5 m/s for 10 seconds. After this, she begins accelerating at 1 m/s$^2$ for 3 seconds. How far does she travel overall? Draw position, velocity, and acceleration graphs. 
+
+\item You decide to pull a quick stunt for views. You lie on the road in front of a car that's travelling 100 km/hr and starts accelerating at a rate of -2 m/s from a line. Given a desire to have 2 m extra for safety, how far do you need to lie from the line?
+
+\item If you're on a spaceship that is accelerating 1,000 km/hr$^2$, what is the average velocity in m/s after 13 hours? How many kilometers have you travelled?
+
+\item If you're accelerating at a constant rate, what is the geometric shape produced on a position plot?
+\end{itemize}
+
+\section{Two (Or More!) Dimensions}\label{2D}
+
+Although one dimensional motion can help us solve a variety of problems, there are far more problems that it can't deal with: how far does a ball travel if thrown at a $30^{\circ}$ angle? How far does a hiker travel when navigating a treacherous trail? In order to deal with these concepts we need to introduce vectors and trigonometry. 
+
+\subsection{Vectors}\label{sec:vectors}
+
+The values that we learned about in Sec.~\ref{1D} are referred to as \textit{scalars}. Simply put, we can think of it just as a number; it obeys the normal rules of multiplication, addition, associativity and commutativity of said processes, identity elements, inverse elements, and distribution. We can add or multiply scalars together without worry, so long as we respect units. Temperature is a fantastic example of a scalar quantity. \textit{Vectors}, on the other hand, are different --- these quantities have both magnitude and a direction (and, technically, need to obey rotation rules). 
+
+Think of directions for getting to a destination: if I say to drive two blocks east and then one block south vs two blocks east and then one more block east we don't end up in the same place, even though we drove the same distance. Before we get into this analytically, let's dive into how to do this graphically. When adding vectors we add them tip to tail and the line we draw from the tail of the first vector to the tip of the second is our resultant vector.
+
+Show graphical addition on the board.
+
+Vectors can also be multiplied by a scalar: we extend the vector collinearly to a new length indicated by the scalar. A negative sign indicates a collinear vector in the opposite direction.
+
+Show scalar multiplication, subtraction, and negation on the board.
+
+Now, we don't always want to have to break out the drawing kit when we're constructing the sum of vectors: we want to be able to do things algebraically. But, in order to do that, we need to introduce trigonometry.
+
+\subsection{Trigonometry}\label{sec:trig}
+
+Trigonometry is the branch of mathematics that studies triangles. It builds off the foundations laid by Euclidean geometry. We're going to start off by building up two rather simple ideas: sum of the internal angles of a triangle and the Pythagorean theorem. 
+
+Sum of internal angles on board: show equivalence of opposite angles, then equivalence of opposite interior angles of parallel lines, and finally interior angles equal $\pi$.
+
+Then prove the Pythagorean theorem graphically. $a^2 + b^2 = c^2$.
+
+We define three extremely useful ratios, \textit{sine, cosine}, and \textit{tangent}:
+\begin{equation}\label{eqn:trigDefs}
+\sin \theta = \frac{Opp}{Hyp}, \,\,\,\, \cos \theta =\frac{Adj}{Hyp}, \,\,\,\, \mathrm{and} \,\,\,\, \tan \theta = \frac{Opp}{Adj}
+\end{equation}
+
+\subsection{Vectors Again}\label{sec:vectors2}
+
+\subsection{Trajectories}\label{sec:trajectories}
+
+\section{Energy}\label{Energy}
+
+\section{Forces And Newton's Laws}\label{Force}
+
+\section{Friction}\label{Friction}
+
+\section{Hooke's Law}\label{Hooke}
+
+\section{Statics}\label{Statics}
+
+\section{Introduction To Circular Motion}\label{Circular}
+
+\section{Orbits}\label{Orbits}
+
+\section{Gravity}\label{Gravity}
+
+\section{Momentum}\label{Momentum}
+
+\section{Collisions}\label{Collisions}
+
+
+
+%++++++++++++++++++++++++++++++++++++++++
+% References section will be created automatically 
+% with inclusion of "thebibliography" environment
+% as it shown below. See text starting with line
+% \begin{thebibliography}{99}
+% Note: with this approach it is YOUR responsibility to put them in order
+% of appearance.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{apsrev4-1}
+\bibliography{refs}
+
+
+
+\end{document}
