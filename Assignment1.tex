@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%% DO NOT CHANGE HERE %%%%%%%%%%%%%%%%%%%% {
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% }
+
+%%%%%%%%%%%%%%%%%%%%%%%% CHANGE HERE %%%%%%%%%%%%%%%%%%%% {
+\newcommand\course{Physics II}
+\newcommand\semester{Fall 2019}
+\newcommand\hwnumber{1}                 % <-- ASSIGNMENT #
+\newcommand\NetIDa{Paul Smith}           % <-- YOUR NAME
+\newcommand\NetIDb{}           % <-- STUDENT ID #
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% }
+
+%%%%%%%%%%%%%%%%% DO NOT CHANGE HERE %%%%%%%%%%%%%%%%%%%% {
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}                 
+\chead{\textbf{\Large Assignment \hwnumber}}
+\rhead{\course \\ \semester}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% }
+
+\begin{document}
+
+\section*{Problem 1}
+
+You attempt a 105c (two-and-a-half flips forward in a tuck position) off of a 10 m diving platform. Assuming you can rotate at a maximum rate of one flip per second and you can jump a maximum of 1 m upwards off the board: a) what is the fastest initial velocity (upwards) that you can have? b) how much time passes before you hit the water? and c) can you complete the skill?
+
+\section*{Problem 2}
+
+A car accelerates at a rate of $25 \frac{\mathrm{km}}{\mathrm{hr*s}}$. How much time does it take to get to $125$ km/hr? How much distance will the car cover in this time?
+
+\section*{Problem 3}
+
+You decide to try and measure the speed of a car you're riding in by timing the distance between power poles. Your data is given in Table \ref{tab:q3}:
+
+\begin{table}[h]    % [h] means to print the table here
+    \centering  % to center the table https://www.overleaf.com/project/5d757e7e591aa30001b65c17
+    \begin{tabular}{c|c} % one 'c' for each column. It means centered. You can use 'l' or 'r' for left and right, respectively. '|' prints a line
+
+     Distance (m) & Time (s) \\ \hline
+        0   &  0  \\
+        80   & 2.5   \\
+        168   &  5.1  \\
+        245   &  7.6  \\
+        315   &  9.1  \\
+
+    \end{tabular}
+\caption{Measurements from the back seat}
+\label{tab:q3}
+\end{table}
+
+What is the overall average velocity? How about the average velocity of each measurement? Draw both the overall average and segment averages on a v-t graph.
+
+\section*{Problem 4}
+
+A train accelerates at a constant rate $a_c$ from rest. Draw a-t, v-t, and x-t graphs for the train. What is the overall shape of the position graph?
+
+\end{document}
